@@ -50,7 +50,6 @@ def on_search_click():
         app_listbox.itemconfig(tk.END, bg="red", fg="white")
     else:
         for app in app_list:
-            # app_listbox.insert(tk.END, f"{app['name']} ({app['ver']}) - ID: {app['id']}")
             app_listbox.insert(tk.END, f"{app['name']} - version {app['ver']} - ID: {app['id']}")
             app_listbox.itemconfig(tk.END, bg="#1D0748", fg="yellow")
 
@@ -59,7 +58,6 @@ def on_download_click():
     selected_app = app_listbox.get(app_listbox.curselection())
     if selected_app:
         app = selected_app.split("- ")
-        print(app)
         app_id = app[-1].replace("ID: ", "")
         app_version = app[-2].replace("version ", "").strip()
         ipa_name = "".join(app[:-2]).strip() + f"-{app_version}.ipa"
